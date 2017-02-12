@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+
+<properties>
+  <entry key="signupurl">http://localhost:8080/api/user/join</entry>
+  <entry key="signinurl">http://localhost/api/user/login</entry>
+  <entry key="signupcheckurl">http://localhost:8080/api/user/chk_join</entry>
+  <entry key="getuserinfo">http://localhost:8080/api/user/get</entry>
+  <entry key="setuserinfo">http://localhost:8080/api/user/update</entry>
+  <entry key="homelist">http://localhost:8080/api/deal/home_list</entry>
+  <entry key="deallist">http://localhost:8080/api/deal/list</entry>
+</properties>
