@@ -12,7 +12,7 @@ public class MemberController {
 
 	private static final String VIEW_SIGNIN = "/member/signIn";  
 
-	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
+	@RequestMapping(value = "/signIn", method = {RequestMethod.GET, RequestMethod.POST})
 	public String signIn(Locale locale, Model model) {
 
 		return VIEW_SIGNIN;

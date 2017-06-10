@@ -23,7 +23,7 @@
              *   - 최초작성 Apr 03, 2017 by Harold
              * */
             $("#register").click(function(){
-                location.href = "/signMember/signUp";
+                location.href = "/signUp";
             });
 
             /*
@@ -67,7 +67,7 @@
             $.ajax({
                 type : "POST",
                 data: $("#frmLogin").serialize(),
-                url : "/signMember/signIn",
+                url : "/signIn",
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 dataType : 'json',
                 success: function(data) {
