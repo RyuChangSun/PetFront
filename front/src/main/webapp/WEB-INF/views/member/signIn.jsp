@@ -73,7 +73,7 @@
                 success: function(data) {
                     if(data.result == "ok")
                     {
-                        location.href = "/reservation/index/";
+                        //location.href = "/reservation/index/";
                     }
                     else
                     {

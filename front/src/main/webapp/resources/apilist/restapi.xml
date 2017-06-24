@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
 
 <properties>
-  <entry key="signupurl">http://localhost:8081/api/user/join</entry>
+  <entry key="signInUrl">signIn</entry>
   <entry key="signinurl">http://localhost/api/user/login</entry>
   <entry key="signupcheckurl">http://localhost:8081/api/user/chk_join</entry>
   <entry key="getuserinfo">http://localhost:8081/api/user/get</entry>
