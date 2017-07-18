@@ -35,6 +35,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(REDIRECT_LOGIN_FORM);
 			return false;
 		}
+
 		logger.debug("## AuthInterceptor End ###");
 		return super.preHandle(request, response, handler);
 	}
