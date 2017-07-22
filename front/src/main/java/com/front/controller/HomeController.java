@@ -37,7 +37,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		System.out.println("aa:"+xmlTest);
+		System.out.println("HomeController >> /");
 
 		return "home";
 	}

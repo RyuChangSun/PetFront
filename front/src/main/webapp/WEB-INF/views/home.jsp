@@ -3,6 +3,14 @@
 <html>
 <head>
 	<title>Home</title>
+	
+	<script>
+	
+		$(function(){
+			alert("here");
+		});
+	
+	</script>
 </head>
 <body>
 <h1>
