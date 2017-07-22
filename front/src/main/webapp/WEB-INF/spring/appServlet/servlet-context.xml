@@ -15,7 +15,11 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<!-- resources mapping="/resources/**" location="/resources/" /-->
+	<resources mapping="/css/**" location="/resources/css/" />
+	<resources mapping="/img/**" location="/resources/img/" />
+	<resources mapping="/js/**" location="/resources/js/" />
+	<resources mapping="/jquery/**" location="/resources/jquery/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,7 +27,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.rest.front" />
+	<context:component-scan base-package="com.front" />
 
 	<!-- 다국어 설정 시작 -->
     <beans:bean id="messageSource"
@@ -44,6 +48,18 @@
             class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <beans:property name="paramName" value="locale" />
         </beans:bean>
+        <interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/css/**"/>
+			<exclude-mapping path="/img/**"/>
+			<exclude-mapping path="/js/**"/>
+			<exclude-mapping path="/jquery/**"/>
+			<exclude-mapping path="/dhtmlx/**"/>
+
+			<exclude-mapping path="/signIn"/>
+
+			<beans:bean class="com.front.interceptor.AuthInterceptor"></beans:bean>
+		</interceptor>
     </interceptors>	
 	<!-- 다국어 설정 끝 -->
 	

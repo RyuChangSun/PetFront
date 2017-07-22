@@ -1,4 +1,4 @@
-package com.rest.front;
+package com.front.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
