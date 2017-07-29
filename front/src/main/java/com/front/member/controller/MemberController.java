@@ -37,17 +37,14 @@ public class MemberController {
 	
 	@RequestMapping(value = "/signIn", method = {RequestMethod.POST})
 	public @ResponseBody String signIn(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response ) throws Exception {
-
-		String id = request.getParameter("email").toString();
-		String pass = request.getParameter("password").toString();
 		
-		Map<String, Object> memberInfo = memberService.SignIn(request, id, pass);
+		Map<String, Object> memberInfo = memberService.SignIn(request);
 		
 		HttpSession session = request.getSession();
 		String sessionId = (String) session.getAttribute("sessionId");
 		
 		Map<String, String> resultMap = new HashMap<>();
-		resultMap.put("result", "ok");  
+		resultMap.put("result", "ok");
 
 		if (memberInfo == null)
 			resultMap.put("memberInfo", "0");  
@@ -63,4 +60,16 @@ public class MemberController {
 
 		return VIEW_SIGNUP;
 	}
+	
+	@RequestMapping(value = "/signUp", method = {RequestMethod.POST})
+	public @ResponseBody String signUp(Locale locale, Model model,HttpServletRequest request, HttpServletResponse response) {
+		
+		Map<String, Object> memberInfo = memberService.SignUp(request);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		resultMap.put("result", "ok");
+		resultMap.put("memberInfo", memberInfo.toString());
+		
+		return VIEW_SIGNUP;
+	}	
 }

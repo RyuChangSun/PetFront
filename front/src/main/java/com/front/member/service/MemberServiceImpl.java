@@ -22,9 +22,15 @@ public class MemberServiceImpl implements MemberService{
     @Value("#{restapi['signInUrl']}")
     private String signInUrl;
     
+    @Value("#{restapi['signUpUrl']}")
+    private String signUpUrl;
+    
 	@Override
-	public Map<String,Object> SignIn(HttpServletRequest request, String id, String pass)
+	public Map<String,Object> SignIn(HttpServletRequest request)
 	{
+		String id = request.getParameter("email").toString();
+		String pass = request.getParameter("password").toString();		
+		
 		String params = String.format("id=%s&pass=%s", id, pass);
 		
 		String url = ApiUtil.GetApiUrl(request, signInUrl);
@@ -42,5 +48,26 @@ public class MemberServiceImpl implements MemberService{
 		return returnMap;
 	}
 	
-	
+	@Override
+	public Map<String,Object> SignUp(HttpServletRequest request)
+	{
+		String id = request.getParameter("email").toString();
+		String pass = request.getParameter("password").toString();		
+		
+		String params = String.format("id=%s&pass=%s", id, pass);
+		
+		String url = ApiUtil.GetApiUrl(request, "signUp");
+				
+		Map<String, Object> returnMap = new HashMap<>();  
+		returnMap = memberDao.SignIn("POST", url, params);
+
+		if (returnMap != null && returnMap.size() > 0)
+		{
+			HttpSession session = request.getSession();
+			session.setAttribute("sessionId", session.getId());
+			session.setAttribute("email", returnMap.get("email"));
+		}
+
+		return returnMap;
+	}	
 }
