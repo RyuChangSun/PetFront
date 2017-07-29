@@ -73,7 +73,16 @@
                 success: function(data) {
                     if(data.result == "ok")
                     {
-                        location.href = "/";
+                    	if (data.memberInfo == 0)
+                   		{
+                            $("#checkNoti").text("아이디 또는 비밀번호가 잘못 입력 되었습니다.");
+                            $("#checkNoti").show();                   			
+                   		}
+                    	else
+                   		{
+                            location.href = "/";                   		
+                   		}
+                    	
                     }
                     else
                     {
@@ -104,10 +113,10 @@
 							<label for="mb_pw">비밀번호</label>
 							<input type="password" id="mb_pw" name="password" class="float_label" onkeydown="javascript: if (event.keyCode == 13) {checkLogin(); return false;}">
 						</p>
-						<p>
+						<!-- p>
 							<input type="checkbox" id="auto_login" name="autoSignYn" value="Y">
 							<label for="auto_login">자동 로그인</label>
-						</p>
+						</p-->
 						<div class="button_area">
 							<button type="button" class="btn red" id="login">로그인</button>
 							<button type="button" class="btn line" id="register">회원가입</button>

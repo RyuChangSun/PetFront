@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 public class MemberController {
 
 	private static final String VIEW_SIGNIN = "/member/signIn";  
-	private static final String VIEW_SIGNIN_COMPLETE = "/member/signComplete";  
+	private static final String VIEW_SIGNUP = "/member/signUp";  
 
 
 	@Autowired
@@ -32,7 +32,6 @@ public class MemberController {
 	@RequestMapping(value = "/signIn", method = {RequestMethod.GET})
 	public String signIn(Locale locale, Model model) {
 
-		
 		return VIEW_SIGNIN;
 	}
 	
@@ -50,23 +49,18 @@ public class MemberController {
 		Map<String, String> resultMap = new HashMap<>();
 		resultMap.put("result", "ok");  
 
-		resultMap.put("updateCount", memberInfo.toString());
+		if (memberInfo == null)
+			resultMap.put("memberInfo", "0");  
+		else
+			resultMap.put("memberInfo", String.valueOf(memberInfo.size()));
 		
 		Gson gson = new Gson();
 		return gson.toJson(resultMap);
-				
-		/*if(sessionId != null && session.getId().equals(sessionId)) 
-		{
-			//response.sendRedirect("/");
-			
-			return "/home";
-		}
-		else
-		{
-			//response.sendRedirect(VIEW_SIGNIN);		
-			
-			return VIEW_SIGNIN;
-		}*/
-		
+	}
+	
+	@RequestMapping(value = "/signUp", method = {RequestMethod.GET})
+	public String signUp(Locale locale, Model model) {
+
+		return VIEW_SIGNUP;
 	}
 }
