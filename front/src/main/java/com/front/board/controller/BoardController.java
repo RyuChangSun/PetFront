@@ -35,7 +35,7 @@ public class BoardController {
 		String pass = "2";//request.getParameter("password").toString();
 		
 		Map<String, Object> boardList = boardService.boardList(request, id, pass);
-		
+		System.out.println("jjjjjjj"+boardList);
 		//HttpSession session = request.getSession();
 		//String sessionId = (String) session.getAttribute("sessionId");
 		

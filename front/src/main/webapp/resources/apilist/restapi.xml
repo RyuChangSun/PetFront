@@ -9,4 +9,5 @@
   <entry key="setuserinfo">http://localhost:8081/api/user/update</entry>
   <entry key="homelist">http://localhost:8081/api/deal/home_list</entry>
   <entry key="deallist">http://localhost:8081/api/deal/list</entry>
+  <entry key="boardList">boardList</entry>
 </properties>

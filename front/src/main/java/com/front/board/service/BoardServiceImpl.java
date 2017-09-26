@@ -28,6 +28,8 @@ public class BoardServiceImpl implements BoardService{
 		String params = String.format("id=%s&pass=%s", id, pass);
 		
 		String url = ApiUtil.GetApiUrl(request, boardList);
+		System.out.println("fffff"+url);
+		System.out.println("fffff"+url);
 				
 		Map<String, Object> returnMap = new HashMap<>();  
 		returnMap = boardDao.boardList("POST", url, params);
